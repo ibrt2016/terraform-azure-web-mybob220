@@ -3,6 +3,6 @@ locals {
     Entity      = "JP"
     Criticality = "High"
     CostCenter  = "03444"
-    Owner       = "Bob         Tayara"
+    Owner       = "BobTayara"
  }
 }
