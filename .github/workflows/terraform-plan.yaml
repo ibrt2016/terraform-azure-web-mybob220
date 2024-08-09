@@ -44,7 +44,7 @@ jobs:
         run: terraform plan  -input=false -no-color -out=tfplann
 
       - name: Display plan
-        run: cat tfplann
+        run: cat ${{ steps.plan.outputs.plan_path }}
 
       - name: Post PR comment
         uses: borchero/terraform-plan-comment@v1
