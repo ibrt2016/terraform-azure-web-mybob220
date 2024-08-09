@@ -32,21 +32,24 @@ jobs:
         uses: dflook/terraform-plan@v1.44.0
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          TERRAFORM_PRE_RUN: |
+            terraform init
+            terraform plan  -input=false -no-color -out=tfplann2
 
-      - name: Terraform Init
-        id: init
-        run: terraform init
+      # - name: Terraform Init
+      #   id: init
+      #   run: terraform init
   
   
   
-      - name: Terraform Plan
-        id: plan2
-        run: terraform plan  -input=false -no-color -out=tfplann
+      # - name: Terraform Plan
+      #   id: plan2
+      #   run: terraform plan  -input=false -no-color -out=tfplann
 
     
       - name: Post PR comment
         uses: borchero/terraform-plan-comment@v1
         with:
           token: ${{ secrets.GH_PAT }}
-          planfile: ${{ steps.plan.outputs.text_plan_path }}
+          planfile: tfplann2
           working-directory: ${{ github.workspace }}
