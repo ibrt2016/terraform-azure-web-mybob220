@@ -29,8 +29,11 @@ jobs:
 
       - name: terraform plan
         id: plan
-        uses: dflook/terraform-plan@v1
-      
+        uses: dflook/terraform-plan@v1.44.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          
+
       - name: Post PR comment
         uses: borchero/terraform-plan-comment@v1
         with:
