@@ -39,3 +39,4 @@ jobs:
         with:
           token: ${{ secrets.GH_PAT }}
           planfile: ${{ steps.plan.outputs.plan_path }}
+          working-directory: ${{ github.workspace }}
