@@ -43,6 +43,9 @@ jobs:
         id: plan2
         run: terraform plan  -input=false -no-color -out=tfplann
 
+      - name: Display plan
+        run: cat tfplann
+
       - name: Post PR comment
         uses: borchero/terraform-plan-comment@v1
         with:
