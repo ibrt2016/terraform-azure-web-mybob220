@@ -1,7 +1,3 @@
-data "http" "my_ip" {
-  url = "http://ip4.clara.net/?raw"
-}
-
 module "azure_region" {
   source  = "claranet/regions/azurerm"
   version = "7.1.1"
@@ -17,7 +13,7 @@ module "rg" {
   environment = var.environment
   location    = module.azure_region.location
   stack       = var.stack
-  name_suffix = "001"
+  name_suffix = "005"
 }
 
 module "azure_virtual_network" {
@@ -29,7 +25,7 @@ module "azure_virtual_network" {
   location_short = module.azure_region.location_short
   client_name    = var.client_name
   stack          = var.stack
-  name_suffix    = "001"
+  name_suffix    = "005"
 
   resource_group_name = module.rg.resource_group_name
 
