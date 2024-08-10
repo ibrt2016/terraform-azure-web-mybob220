@@ -33,8 +33,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 
+      - name: Move
+        run: cp ${{ steps.plan.outputs.plan_path }} ./
+
       - name: List
-        run: ls ${{ steps.plan.outputs.plan_path }}
+        run: ls -la
 
       # - name: Terraform Init
       #   id: init
@@ -51,5 +54,5 @@ jobs:
         uses: borchero/terraform-plan-comment@v1
         with:
           token: ${{ secrets.GH_PAT }}
-          planfile: tfplann2
+          planfile: plan.tfplan
           working-directory: ${{ github.workspace }}
