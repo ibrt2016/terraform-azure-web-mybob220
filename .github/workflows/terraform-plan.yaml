@@ -32,9 +32,9 @@ jobs:
         uses: dflook/terraform-plan@v1.44.0
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
-          TERRAFORM_PRE_RUN: |
-            terraform init
-            terraform plan  -input=false -no-color -out=tfplann2
+
+      - name: List
+        run: ls -la
 
       # - name: Terraform Init
       #   id: init
