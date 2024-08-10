@@ -34,7 +34,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 
       - name: List
-        run: ls -la
+        run: ls -lra
 
       # - name: Terraform Init
       #   id: init
