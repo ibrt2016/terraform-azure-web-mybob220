@@ -39,6 +39,9 @@ jobs:
       - name: List
         run: ls -la
 
+      - name: Pwd
+        run: pwd
+
       # - name: Terraform Init
       #   id: init
       #   run: terraform init
